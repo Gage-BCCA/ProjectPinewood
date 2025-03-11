@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+
+# Django specific
+*.log
+*.pot
+media/
+static/
+local_settings.py
+db.sqlite3
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.vscode/
