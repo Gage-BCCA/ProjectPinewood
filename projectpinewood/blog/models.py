@@ -5,6 +5,9 @@ from django.utils.text import slugify
 class PostStatus(models.Model):
     status = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.status
+
 
 # Create your models here.
 class Post(models.Model):

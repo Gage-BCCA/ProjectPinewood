@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block title %}Test page{% endblock %}
+
+{% block content %}
+<h1>Hello World</h1>
+<button id="12345"> Test </button>
+<script src="{% static 'admin/app.js' %}"></script> 
+{% endblock %}
