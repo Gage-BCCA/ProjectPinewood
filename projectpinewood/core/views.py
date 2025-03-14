@@ -6,3 +6,6 @@ def homepage_view(request):
 
 def about_view(request):
     return render(request, "core/about.html")
+
+def contact_view(request):
+    return render(request, "core/contact.html")
