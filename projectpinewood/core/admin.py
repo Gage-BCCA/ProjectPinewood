@@ -1,11 +1,15 @@
 from django.contrib import admin
-from .models import InterestTags, Subscriber
+from .models import InterestTag, Subscriber, Announcement
 
 # Register your models here.
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
     fields = ["title", "subtitle", "body", "status"]
 
-@admin.register(InterestTags)
+@admin.register(InterestTag)
 class InterestTagsAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Announcement)
+class AnnouncementAdmin(admin.ModelAdmin):
+    fields = ["header", "subheader", "content", "date_expiration", "link"]
