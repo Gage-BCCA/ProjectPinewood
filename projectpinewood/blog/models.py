@@ -2,8 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 
 
-class PostStatus:
-    status = models.CharField(length=255)
+class PostStatus(models.Model):
+    status = models.CharField(max_length=255)
 
 
 # Create your models here.
@@ -19,7 +19,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     featured_image = models.TextField(null=True)  # TODO: Add local image support
     view_count = models.BigIntegerField(default=0)
-    status = models.ForeignKey(PostStatus, on_delete=models.CASCADE)
+    status = models.ForeignKey('PostStatus', on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if not self.slug:
