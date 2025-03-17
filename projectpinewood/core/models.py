@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import ManyToManyField
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -50,4 +51,21 @@ class Announcement(models.Model):
     def __str__(self):
         return self.header
 
+max_photo_num = 10 #randomly chosen number
+class Gallery(models.Model):
+    photo = models.ImageField(upload_to='/gallery') #or whatever path you think is best
+    date_added = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
+    def __self__(self):
+        return self.photo
+    
+    @classmethod
+    def get_active_photo_count(cls):
+        return cls.objects.filter(is_active=True).count()
+    
+    def save(self):
+        if Gallery.get_active_photo_count() > max_photo_num:
+            raise ValidationError
+
+        
