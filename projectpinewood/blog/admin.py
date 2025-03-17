@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, PostStatus
+from .models import Post, PostStatus, Tag
 
 # Register your models here.
 @admin.register(Post)
@@ -8,4 +8,8 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(PostStatus)
 class PostStatusAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
     pass
