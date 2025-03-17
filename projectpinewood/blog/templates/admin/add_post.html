@@ -1,9 +1,25 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
-{% block title %}Test page{% endblock %}
-
+{% block title %}Blog Post Editor{% endblock %}
 {% block content %}
-<h1>Hello World</h1>
-<button id="12345"> Test </button>
-<script src="{% static 'admin/app.js' %}"></script> 
+<link rel="stylesheet" href="{% static 'blog/add_post/editor.css' %}">
+<h1>Blog Post Builder</h1>
+<div>
+    <div>
+        <button id="add-big-header-btn">Add Big Header</button>
+    </div>
+    <div id="add-small-header-btn">
+        <button>Add Small Header</button>
+    </div>
+    <div id="add-text-section-btn">
+        <button>Add Text Section</button>
+    </div>
+</div>
+<div>
+<h1>Build a New Blog Post</h1>
+</div>
+<div id="document">
+
+</div>
+<script src="{% static 'blog/add_post/editor.js' %}"></script>
 {% endblock %}

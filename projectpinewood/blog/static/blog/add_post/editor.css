@@ -1,0 +1,16 @@
+#document {
+    background: #ddd;
+    border-radius: 8px;
+}
+    #document > * {
+        padding: 10px;
+        align-content: center;
+        color: black;
+    }
+    #document > div:focus {
+        background-color: blue;
+    }
+
+.big-header {
+    margin: 0;
+}
