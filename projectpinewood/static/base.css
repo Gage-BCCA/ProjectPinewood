@@ -4,7 +4,3 @@ base.css
 Contains global styling elements. Will be overridden by app-specific CSS files.
 
 */
-
-body {
-    background-color: #ddd;
-}
