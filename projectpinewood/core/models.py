@@ -11,6 +11,9 @@ class InterestTag(models.Model):
     """
     interest_name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.interest_name
+
 
 class Subscriber(models.Model):
     """Generic newsletter sign up model
@@ -25,6 +28,9 @@ class Subscriber(models.Model):
     newsletter_delivered = models.IntegerField(default=0)
     interests = ManyToManyField(InterestTag)
 
+    def __str__(self):
+        return self.email
+
 
 class Announcement(models.Model):
     """ Front Page Announcements
@@ -35,10 +41,13 @@ class Announcement(models.Model):
     link attribute, which will render a button if it is set.
     """
     header = models.CharField(max_length=255, null=False)
-    subheader = models.CharField(max_length=255, default=None, null=True)
+    subheader = models.CharField(max_length=255, default=None, null=True, blank=True)
     content = models.TextField(null=False)
     date_created = models.DateTimeField(auto_now_add=True)
-    date_expiration = models.DateTimeField(default=None, null=True)
-    link = models.URLField(default=None, null=True)
+    date_expiration = models.DateTimeField(default=None, null=True, blank=True)
+    link = models.URLField(default=None, null=True, blank=True)
+
+    def __str__(self):
+        return self.header
 
 

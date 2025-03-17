@@ -4,3 +4,41 @@ base.css
 Contains global styling elements. Will be overridden by app-specific CSS files.
 
 */
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #042a4f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+    .navbar > div {
+        flex: 1 1 25%;
+        padding: .5rem;
+        text-align: center;
+    }
+
+    .navbar > div > a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+.content {
+    min-height: 90vh;
+}
+
+footer {
+    color: white;
+    background-color: #042a4f;
+    padding: 15px;
+}
+
+
+@media (width <= 600px) {
+    .navbar {
+        display: block;
+    }
+}

@@ -1,8 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block additional_css_files %}
-<link rel="stylesheet" href="{% static 'core/styles.css' %}">
+<link rel="stylesheet" href="{% static 'core/landing/landing.css' %}">
 {% endblock %}
+
 {% block content %}
+
 <h1>Welcome to the home page!</h1>
+
+{% for announcement in announcements %}
+<div class="announcement">
+    <h1>{{ announcement.header }}</h1>
+
+    {% if announcement.subheader %}
+        <h2>{{ announcement.subheader }}</h2>
+    {% endif %}
+
+    <p>{{ announcement.content }}</p>
+
+    {% if announcement.link %}
+    <div class="announcement__btn">
+        <a href="{{ announcement.link }}">See more</a>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+
+<div class="gallery">
+    <h1>Gallery Goes Here</h1>
+</div>
+
+<div class="newsletter">
+    <h1>Let's Stay in Touch!</h1>
+    <div class="newsletter__signup">
+        <div>
+            <p>Be the first to know about new collection launches, flash sales, announcements, and more! </p>
+        </div>
+        <div class="newsletter__form">
+            <form>
+                <input type="email" />
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

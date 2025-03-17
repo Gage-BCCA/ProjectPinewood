@@ -3,30 +3,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'base.css' %}">
     {% block additional_css_files %}
     {% endblock %}
 </head>
 <body>
-<div style="text-align:center;">
+<div>
     <h1>Christian Wash Garvey</h1>
 </div>
-<div style="display:flex;">
-    <div style="flex: 1 1 20%;text-align:center">
+<div class="navbar">
+    <div >
         <a href="/">Home</a>
     </div>
-    <div style="flex: 1 1 20%;text-align:center">
+    <div>
         <a href="/shop">Shop</a>
     </div>
-    <div style="flex: 1 1 20%;text-align:center">
+    <div>
         <a href="/blog">Blog</a>
     </div>
-        <div style="flex: 1 1 20%;text-align:center">
+        <div>
         <a href="/about">About</a>
     </div>
 </div>
-{% block content %}
-{% endblock %}
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<footer>
+    <p>Just a little footer.</p>
+</footer>
 </body>
 </html>
