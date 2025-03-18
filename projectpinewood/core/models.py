@@ -53,7 +53,7 @@ class Announcement(models.Model):
 
 max_photo_num = 10 #randomly chosen number
 class Gallery(models.Model):
-    photo = models.ImageField(upload_to='/gallery') #or whatever path you think is best
+    photo = models.ImageField(upload_to='gallery') #or whatever path you think is best
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
