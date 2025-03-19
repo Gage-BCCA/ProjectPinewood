@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'management/base.css' %}"/>
+    {% block additional_css_files %} {% endblock %}
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar__breadcrumb">
+        <a href="/"> < Back to Main Site </a>
+    </div>
+    <div class="sidebar__header">
+        <h1>Site Management</h1>
+    </div>
+    <div class="sidebar__links">
+        <div class="link link--active">
+            <a href="{% url 'management_landing' %}">Home</a>
+        </div>
+        <div class="link">
+            <a href="{% url 'blog_management' %}">Blog</a>
+        </div>
+        <div class="link">
+            <a href="#">Shop</a>
+        </div>
+        <div class="link">
+            <a href="#">Announcements</a>
+        </div>
+        <div class="link">
+            <a href="#">Newsletter</a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>

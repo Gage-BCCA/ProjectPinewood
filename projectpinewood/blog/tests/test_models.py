@@ -1,5 +1,5 @@
 from django.test import TestCase
-from blog.models import PostStatus, Post
+from ..models import PostStatus, Post
 
 
 class BlogTestCase(TestCase):
