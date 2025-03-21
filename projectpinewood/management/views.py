@@ -9,3 +9,12 @@ def management_blog_view(request):
 
 def management_blog_add_post_view(request):
     return render(request, "management/blog/add_post.html")
+
+def management_storefront_view(request):
+    return render(request, "management/storefront/landing.html")
+
+def management_announcements_view(request):
+    return render(request, "management/announcements/landing.html")
+
+def management_newsletter_view(request):
+    return render(request, "management/newsletter/landing.html")

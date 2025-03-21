@@ -1,0 +1,35 @@
+{% extends 'management/base.html' %}
+{% load static %}
+{% block additional_css_files %}
+<link rel="stylesheet" href="{% static 'management/newsletter/landing/landing.css' %}">
+{% endblock %}
+{% block content %}
+<h2>Newsletter Management</h2>
+
+<div class="stats">
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
