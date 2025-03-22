@@ -23,11 +23,13 @@ class Subscriber(models.Model):
     Contains a many-to-many relationship with the InterestTag model, so that
     specific interests can be mapped to specific subscribers.
     """
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100)
     date_subscribed = models.DateTimeField(auto_now_add=True)
     newsletter_delivered = models.IntegerField(default=0)
-    interests = ManyToManyField(InterestTag)
+    # interests = ManyToManyField(InterestTag)
+    wants_newsletter = models.BooleanField(default=False)
+    wants_product_updates = models.BooleanField(default=False)
 
     def __str__(self):
         return self.email
@@ -52,7 +54,7 @@ class Announcement(models.Model):
         return self.header
 
 max_photo_num = 10 #randomly chosen number
-class Gallery(models.Model):
+class Gallery(models.Model):  #Add links to Gallery photo's: Dynamic
     photo = models.ImageField(upload_to='gallery/') #or whatever path you think is best
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
