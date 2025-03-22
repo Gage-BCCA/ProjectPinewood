@@ -16,23 +16,25 @@
     <div class="sidebar__header">
         <h1>Site Management</h1>
     </div>
+    {% with request.resolver_match.url_name as url_name %}
     <div class="sidebar__links">
-        <div class="link link--active">
+        <div class="link {%if url_name == 'management_landing'%} link--active {%endif%}">
             <a href="{% url 'management_landing' %}">Home</a>
         </div>
-        <div class="link">
+        <div class="link {%if url_name == 'blog_management'%} link--active {%endif%}">
             <a href="{% url 'blog_management' %}">Blog</a>
         </div>
-        <div class="link">
-            <a href="#">Shop</a>
+        <div class="link {%if url_name == 'storefront_management'%} link--active {%endif%}">
+            <a href="{% url 'storefront_management' %}">Storefront</a>
         </div>
-        <div class="link">
-            <a href="#">Announcements</a>
+        <div class="link {%if url_name == 'announcements_management'%} link--active {%endif%}">
+            <a href="{% url 'announcements_management' %}">Announcements</a>
         </div>
-        <div class="link">
-            <a href="#">Newsletter</a>
+        <div class="link {%if url_name == 'newsletter_management'%} link--active {%endif%}">
+            <a href="{% url 'newsletter_management' %}">Newsletter</a>
         </div>
     </div>
+    {% endwith %}
 </div>
 <div class="content">
     {% block content %} {% endblock %}

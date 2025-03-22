@@ -2,21 +2,19 @@
 {% load static %}
 
 {% block additional_css_files %}
-<link rel="stylesheet" href="{% static 'core/landing/landing.css' %}">
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'core/landing/landing.css' %}">
 {% endblock %}
 
 {% block content %}
-
 <h1>Welcome to the home page!</h1>
 
 {% for announcement in announcements %}
 <div class="announcement">
     <h1>{{ announcement.header }}</h1>
-
     {% if announcement.subheader %}
         <h2>{{ announcement.subheader }}</h2>
     {% endif %}
-
     <p>{{ announcement.content }}</p>
 
     {% if announcement.link %}
@@ -31,11 +29,35 @@
     <h1>Gallery Goes Here</h1>
 </div>
 
+{% comment %} this is the section for the carousel {% endcomment %}
+<div class="carousel-container">
+    <button class="carousel-btn btn-left" aria-label="Previous Slide">&#10094;</button>
+    <div class="carousel-track-container">
+        <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+                <img src="https://placehold.co/600x400" alt="Placeholder Image">
+                <p>Slide 1 Description</p>
+              </li>
+              <li class="carousel-slide">
+                <img src="https://placehold.co/600x400" alt="Placeholder Image">
+                <p>Slide 2 Description</p>
+              </li>
+              <li class="carousel-slide">
+                <img src="https://placehold.co/600x400" alt="Placeholder Image">
+                <p>Slide 3 Description</p>
+              </li>
+              
+        </ul>
+    </div>
+    <button class="carousel-btn btn-right" aria-label="Next Slide">&#10095;</button>
+</div>
+
+
 <div class="newsletter">
     <h1>Let's Stay in Touch!</h1>
     <div class="newsletter__signup">
         <div>
-            <p>Be the first to know about new collection launches, flash sales, announcements, and more! </p>
+            <p>Be the first to know about new collection launches, flash sales, announcements, and more!</p>
         </div>
         <div class="newsletter__form">
             <form>
@@ -44,6 +66,11 @@
             </form>
         </div>
     </div>
-
 </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    {{ block.super }}
+   
+    <script src="{% static 'core/landing/landing.js' %}"></script>
 {% endblock %}

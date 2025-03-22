@@ -1,0 +1,115 @@
+{% extends 'management/base.html' %}
+{% load static %}
+{% block additional_css_files %}
+<link rel="stylesheet" href="{% static 'management/storefront/landing/landing.css' %}">
+{% endblock %}
+{% block content %}
+<h2>Storefront Management</h2>
+
+<!---- Stats ----->
+<section>
+<div class="stats">
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__title">
+            <p>Blogs Posted</p>
+        </div>
+        <div class="stats__content">
+            <h1>21</h1>
+        </div>
+    </div>
+</div>
+</section>
+
+<div class="card">
+    <div class="card__title">
+        <h2> Current Featured Products</h2>
+    </div>
+    <div class="card__data">
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>johndoe@example.com</td>
+                <td>28</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>janesmith@example.com</td>
+                <td>34</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Michael Brown</td>
+                <td>michaelb@example.com</td>
+                <td>41</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Emily White</td>
+                <td>emilyw@example.com</td>
+                <td>25</td>
+                <td>Australia</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Chris Johnson</td>
+                <td>chrisj@example.com</td>
+                <td>30</td>
+                <td>Germany</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<section class="control-panel">
+    <div class="actions">
+        <div class="buttons">
+            <div class="button">
+                <a href="#">View All Featured Products</a>
+            </div>
+            <div class="button">
+                <a href="#">Add a Feature Product</a>
+            </div>
+            <div class="button">
+                <a href="#">Edit a Featured Product</a>
+            </div>
+            <div class="button button--dangerous">
+                <a href="#">Remove a Featured Product</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
