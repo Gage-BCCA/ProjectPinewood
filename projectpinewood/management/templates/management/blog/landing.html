@@ -1,8 +1,5 @@
 {% extends 'management/base.html' %}
 {% load static %}
-{% block additional_css_files %}
-<link rel="stylesheet" href="{% static 'management/blog/landing/landing.css' %}">
-{% endblock %}
 {% block content %}
 
 <h2>Blog management</h2>
@@ -88,16 +85,15 @@
     </div>
 </div>
 <section class="control-panel">
-    <h3>Posts</h3>
     <div class="buttons">
+        <div class="button button--secondary">
+            <a href="#">New Post</a>
+        </div>
         <div class="button">
             <a href="#">View All Posts</a>
         </div>
         <div class="button">
             <a href="#">View Unpublished Posts</a>
-        </div>
-        <div class="button">
-            <a href="#">New Post</a>
         </div>
         <div class="button button--dangerous">
             <a href="#">Delete Post</a>

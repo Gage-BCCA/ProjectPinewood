@@ -1,13 +1,9 @@
 {% extends 'management/base.html' %}
 {% load static %}
-{% block additional_css_files %}
-<link rel="stylesheet" href="{% static 'management/storefront/landing/landing.css' %}">
-{% endblock %}
 {% block content %}
 <h2>Storefront Management</h2>
 
 <!---- Stats ----->
-<section>
 <div class="stats">
     <div class="stats__item">
         <div class="stats__title">
@@ -34,7 +30,6 @@
         </div>
     </div>
 </div>
-</section>
 
 <div class="card">
     <div class="card__title">
@@ -95,11 +90,11 @@
 <section class="control-panel">
     <div class="actions">
         <div class="buttons">
-            <div class="button">
-                <a href="#">View All Featured Products</a>
+            <div class="button button--secondary">
+                <a href="#">Add a Feature Product</a>
             </div>
             <div class="button">
-                <a href="#">Add a Feature Product</a>
+                <a href="#">View All Featured Products</a>
             </div>
             <div class="button">
                 <a href="#">Edit a Featured Product</a>

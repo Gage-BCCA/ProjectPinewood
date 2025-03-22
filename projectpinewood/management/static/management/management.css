@@ -3,7 +3,7 @@ body {
     display: flex;
     border-collapse: collapse;
     font-family: sans-serif;
-    
+
 }
 
 .sidebar {
@@ -18,10 +18,10 @@ body {
     padding-left: 1rem;
 }
 
-    .sidebar__breadcrumb > a {
-        text-decoration: underline;
-        color: white;
-    }
+.sidebar__breadcrumb > a {
+    text-decoration: underline;
+    color: white;
+}
 
 .content {
     flex: 1 1 80%;
@@ -30,10 +30,8 @@ body {
 
 .sidebar__header {
     padding: 1rem;
-    
     color: white;
 }
-
 
 .link {
     background-color: #1e3799;
@@ -41,15 +39,15 @@ body {
     padding: 1rem 0 1rem 0;
 }
 
-    .link > a {
-        text-decoration: none;
-        color: white;
-        margin-left: 1rem;
-    }
+.link > a {
+    text-decoration: none;
+    color: white;
+    margin-left: 1rem;
+}
 
-    .link:hover{
-        background-color: #0c2461;
-    }
+.link:hover{
+    background-color: #0c2461;
+}
 
 .link--active {
     background-color: #6a89cc;
@@ -136,24 +134,33 @@ Action Button Styling
     align-content: center;
 }
 
-    .button a {
-        display: block;
-        text-decoration: none;
-        color: white;
-        padding: 1rem;
-    }
+.button a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
 
-    .button:hover {
-        background-color: #4a69bd;
-    }
+.button:hover {
+    background-color: #4a69bd;
+}
 
 .button--dangerous {
     background-color: #e55039;
 }
 
-    .button--dangerous:hover {
-        background-color: #eb2f06;
-    }
+.button--dangerous:hover {
+    background-color: #eb2f06;
+}
+
+.button--secondary {
+    background-color: #27ae60;
+}
+
+.button--secondary:hover {
+    background-color: #2ecc71;
+}
+
 
 
 

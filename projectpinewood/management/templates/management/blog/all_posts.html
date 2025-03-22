@@ -1,0 +1,57 @@
+{% extends 'management/base.html' %}
+{% load static %}
+{% block additional_css_files %}
+<link rel="stylesheet" href="{% static 'management/blog/landing/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>johndoe@example.com</td>
+        <td>28</td>
+        <td>USA</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>janesmith@example.com</td>
+        <td>34</td>
+        <td>Canada</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Michael Brown</td>
+        <td>michaelb@example.com</td>
+        <td>41</td>
+        <td>UK</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Emily White</td>
+        <td>emilyw@example.com</td>
+        <td>25</td>
+        <td>Australia</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Chris Johnson</td>
+        <td>chrisj@example.com</td>
+        <td>30</td>
+        <td>Germany</td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

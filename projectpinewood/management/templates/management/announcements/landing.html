@@ -1,8 +1,45 @@
 {% extends 'management/base.html' %}
 {% load static %}
-{% block additional_css_files %}
-<link rel="stylesheet" href="{% static 'management/announcements/landing/landing.css' %}">
-{% endblock %}
 {% block content %}
 <h2>Announcements Management</h2>
+<div>
+    <div>
+        <h3>Header</h3>
+        <p>Big sale!</p>
+    </div>
+    <div>
+        <h3>Subheader</h3>
+        <p>Bigger sale!</p>
+    </div>
+    <div>
+        <h3>Announcement Body</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non tempor eros, id facilisis orci. Sed finibus
+            posuere commodo. Aenean sed fringilla orci. Suspendisse bibendum vel urna vel scelerisque. Etiam in magna dui.
+            Donec magna elit, finibus nec tempus sed, luctus nec lorem. Vestibulum id molestie leo. Nam id dui in nunc
+            aliquam dignissim at sed urna. Nunc justo lorem, cursus id egestas et, tempus sit amet arcu. Suspendisse sem
+            leo, malesuada eu auctor nec, congue non felis.
+        </p>
+    </div>
+    <div>
+        <h3>Expiration Date</h3>
+        <p>January 1, 2020</p>
+    </div>
+</div>
+<section class="control-panel">
+    <h3>Posts</h3>
+    <div class="buttons">
+        <div class="button button--secondary">
+            <a href="#">Create New Announcement</a>
+        </div>
+        <div class="button">
+            <a href="#">Edit Current Announcement</a>
+        </div>
+        <div class="button">
+            <a href="#">View Archived Announcements</a>
+        </div>
+        <div class="button button--dangerous">
+            <a href="#">Delete Current Announcement</a>
+        </div>
+    </div>
+</section>
 {% endblock %}
