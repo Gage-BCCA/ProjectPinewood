@@ -1,8 +1,4 @@
-/* styles.css */
 
-/* Existing global styles, if any, remain here */
-
-/* --- Carousel Styles Start --- */
 .carousel-container {
     position: relative;
     width: 80%;
@@ -40,7 +36,7 @@
     object-fit: cover;
   }
   
-  /* Carousel Buttons */
+ 
   .carousel-btn {
     position: absolute;
     top: 50%;

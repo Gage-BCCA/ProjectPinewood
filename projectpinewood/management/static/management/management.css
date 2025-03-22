@@ -162,12 +162,49 @@ Action Button Styling
 }
 
 
+/* social media tab at the top */
+/* uiverse.css */
 
-
-
-
-
-
-
-
-
+/* .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .uiverse-button {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2d2e32;
+    border: 2px solid #2d2e32;
+    transition: all 0.45s;
+  }
+  
+  .uiverse-button:hover {
+    transform: rotate(360deg);
+    transform-origin: center center;
+    background-color: #ffff;
+    color: #2d2e32;
+  }
+  
+  .uiverse-button:hover .btn-svg {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(103%);
+  }
+  
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+  } */
+  
