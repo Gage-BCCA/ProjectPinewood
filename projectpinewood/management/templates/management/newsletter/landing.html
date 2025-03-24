@@ -80,13 +80,13 @@
 <section class="control-panel">
     <div class="buttons">
         <div class="button button--secondary">
-            <a href="#">Add an Email</a>
+            <a href="{% url 'add_email' %}">Add an Email</a>
         </div>
         <div class="button">
-            <a href="#">View All Subscribers</a>
+            <a href="{% url 'all_emails' %}">View All Subscribers</a>
         </div>
         <div class="button button--dangerous">
-            <a href="#">Remove Subscriber</a>
+            <a href="{% url 'remove_email' %}">Remove Subscriber</a>
         </div>
     </div>
 </section>

@@ -29,16 +29,16 @@
     <h3>Posts</h3>
     <div class="buttons">
         <div class="button button--secondary">
-            <a href="#">Create New Announcement</a>
+            <a href="{% url 'create_announcement' %}">Create New Announcement</a>
         </div>
         <div class="button">
-            <a href="#">Edit Current Announcement</a>
+            <a href="{% url 'edit_announcement' %}">Edit Current Announcement</a>
         </div>
         <div class="button">
-            <a href="#">View Archived Announcements</a>
+            <a href="{% url 'all_announcements' %}">View Archived Announcements</a>
         </div>
         <div class="button button--dangerous">
-            <a href="#">Delete Current Announcement</a>
+            <a href="{% url 'remove_announcement' %}">Delete Current Announcement</a>
         </div>
     </div>
 </section>

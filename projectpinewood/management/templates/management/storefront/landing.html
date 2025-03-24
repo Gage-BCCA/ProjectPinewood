@@ -91,16 +91,16 @@
     <div class="actions">
         <div class="buttons">
             <div class="button button--secondary">
-                <a href="#">Add a Feature Product</a>
+                <a href="{% url 'add_featured_product' %}">Add a Feature Product</a>
             </div>
             <div class="button">
-                <a href="#">View All Featured Products</a>
+                <a href="{% url 'all_featured_products' %}">View All Featured Products</a>
             </div>
             <div class="button">
-                <a href="#">Edit a Featured Product</a>
+                <a href="{% url 'edit_featured_product' %}">Edit a Featured Product</a>
             </div>
             <div class="button button--dangerous">
-                <a href="#">Remove a Featured Product</a>
+                <a href="{% url 'remove_featured_product' %}">Remove a Featured Product</a>
             </div>
         </div>
     </div>

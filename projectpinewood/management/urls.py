@@ -9,7 +9,7 @@ urlpatterns = [
     # Blog URLs
     #=================================
     path('blog/', views.blog_overview, name='blog_management'),
-    path('blog/add', views.add_post_view, name='add_post'),
+    path('blog/create', views.add_post_view, name='add_post'),
     path('blog/delete', views.delete_post_view, name='delete_post'),
     path('blog/edit', views.edit_post_view, name='edit_post'),
     path('blog/all', views.all_posts_view, name='all_posts'),
@@ -23,6 +23,7 @@ urlpatterns = [
     path('storefront/add', views.add_featured_product_view, name='add_featured_product'),
     path('storefront/remove', views.remove_featured_product_view, name='remove_featured_product'),
     path('storefront/all', views.all_featured_products_view, name='all_featured_products'),
+    path('storefront/edit', views.edit_featured_product_view, name='edit_featured_product'),
 
     #=================================
     # Announcement URLs
@@ -48,6 +49,6 @@ urlpatterns = [
     path('gallery/', views.gallery_overview, name='gallery_management'),
     path('gallery/add', views.add_picture_view, name='add_picture'),
     path('gallery/remove', views.remove_picture_view, name='remove_picture'),
-    path('gallery/all', views.all_pictures_view, name='add_picture'),
+    path('gallery/all', views.all_pictures_view, name='all_pictures'),
     path('gallery/edit', views.edit_picture_view, name='edit_picture'),
 ]

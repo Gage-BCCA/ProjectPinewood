@@ -37,6 +37,9 @@ def remove_featured_product_view(request):
 def all_featured_products_view(request):
     return render(request, "management/storefront/all_featured_products.html")
 
+def edit_featured_product_view(request):
+    return render(request, "/management/storefront/edit_featured_product.html")
+
 #=================================
 # Announcements Views
 #=================================
