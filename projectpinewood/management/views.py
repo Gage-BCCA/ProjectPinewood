@@ -50,6 +50,7 @@ def all_announcements_view(request):
     return render(request, "management/announcements/all_announcements.html")
 
 def create_announcement_view(request):
+    # TODO: Check if an announcement is already present, and display a warning if so
     return render(request, "management/announcements/create_announcement.html")
 
 def remove_current_announcement_view(request):

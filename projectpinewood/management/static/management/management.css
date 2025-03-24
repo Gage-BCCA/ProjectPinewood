@@ -45,7 +45,7 @@ body {
     margin-left: 1rem;
 }
 
-.link:hover{
+.link:hover {
     background-color: #0c2461;
 }
 
@@ -85,6 +85,7 @@ body {
     overflow: scroll;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+
 .styled-table thead tr {
     background-color: rgba(143, 178, 204, 0.87);
 
@@ -116,10 +117,12 @@ Action Button Styling
 .control-panel {
     padding: 1rem;
 }
+
 .buttons {
     display: flex;
 
 }
+
 .buttons svg {
     color: white;
 }
@@ -161,50 +164,66 @@ Action Button Styling
     background-color: #2ecc71;
 }
 
+/*
+    Form Styling
+ */
+form {
+    padding: 1rem;
+    background-color: #2980b9;
+    border-radius: 6px;
+    color: white;
+    width: 45%;
+    /* Shamelessly grabbed from UIverse */
+    /* https://uiverse.io/Prakhar227/soft-horse-12 */
+    clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            0 100%
+    );
+}
 
-/* social media tab at the top */
-/* uiverse.css */
+.control {
+    padding: 1rem;
 
-/* .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
-  .uiverse-button {
-    cursor: pointer;
-    text-decoration: none;
-    color: #ffff;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #2d2e32;
-    border: 2px solid #2d2e32;
-    transition: all 0.45s;
-  }
-  
-  .uiverse-button:hover {
-    transform: rotate(360deg);
-    transform-origin: center center;
-    background-color: #ffff;
-    color: #2d2e32;
-  }
-  
-  .uiverse-button:hover .btn-svg {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(103%) contrast(103%);
-  }
-  
-  .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .top-left {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-  } */
-  
+}
+
+.control__label {
+    font-size: 1.1rem;
+    padding: .5rem;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.control__input {
+    padding: .5rem;
+    border-radius: 6px;
+}
+
+.control__input > input, textarea {
+    margin: auto;
+    width: 100%;
+}
+
+.submit {
+    padding: 1rem;
+    text-align: center;
+}
+
+    .submit > input {
+        padding: 1rem;
+        margin: auto;
+        background-color: #27ae60;
+        border-radius: 6px;
+        color: white;
+        transition: background-color 200ms;
+        align-content: center;
+        border: none;
+        outline: none;
+        width: 50%;
+    }
+    .submit > input:hover {
+        background-color: #2ecc71;
+    }
