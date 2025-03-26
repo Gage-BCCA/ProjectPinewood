@@ -49,6 +49,8 @@ class Announcement(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_expiration = models.DateTimeField(default=None, null=True, blank=True)
     link = models.URLField(default=None, null=True, blank=True)
+    button_text = models.CharField(max_length=50 , null=True, blank=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.header
@@ -58,6 +60,7 @@ class Gallery(models.Model):  #Add links to Gallery photo's: Dynamic
     photo = models.ImageField(upload_to='gallery/') #or whatever path you think is best
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+    link = models.URLField(default=None, blank=True, null=True)
 
     def __self__(self):
         return self.photo
