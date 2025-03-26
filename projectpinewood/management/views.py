@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from operator import truediv
+
+from django.shortcuts import render, redirect
+from core.models import Announcement
 
 # Create your views here.
 def management_landing_view(request):
@@ -44,20 +47,77 @@ def edit_featured_product_view(request):
 # Announcements Views
 #=================================
 def announcements_overview(request):
-    return render(request, "management/announcements/landing.html")
+    context = {}
+    active_announcement = Announcement.objects.filter(is_active=True).first()
+    context["announcement"] = active_announcement
+    return render(request, "management/announcements/landing.html", context=context)
 
 def all_announcements_view(request):
-    return render(request, "management/announcements/all_announcements.html")
+    context = {}
+    announcements = Announcement.objects.all()
+    context["announcements"] = announcements
+    return render(request, "management/announcements/all_announcements.html", context=context)
 
 def create_announcement_view(request):
-    # TODO: Check if an announcement is already present, and display a warning if so
-    return render(request, "management/announcements/create_announcement.html")
+    if request.method == "POST":
+        old_announcements = Announcement.objects.filter(is_active=True)
+        for old_announcement in old_announcements:
+            old_announcement.is_active = False
+            old_announcement.save()
+
+        header = request.POST.get("header")
+        subheader = request.POST.get("subheader")
+        body = request.POST.get("body")
+        expiry = request.POST.get("expiry")
+        button_link = request.POST.get("button-link")
+        announcement = Announcement (
+            header=header,
+            subheader=subheader,
+            content=body,
+            date_expiration = expiry if expiry != "" else None,
+            link = button_link,
+            is_active = True,
+            button_text = "Click now!"
+        )
+        announcement.save()
+        return redirect("management_landing")
+
+    context = {}
+    active_announcement = Announcement.objects.filter(is_active=True).first()
+    if active_announcement:
+        context["announcement_active"] = True
+    else:
+        context["announcement_active"] = False
+    return render(request, "management/announcements/create_announcement.html", context=context)
 
 def remove_current_announcement_view(request):
+    if request.method == "POST":
+        active_announcement = Announcement.objects.filter(is_active=True).first()
+        if active_announcement:
+            active_announcement.is_active = False
+            active_announcement.save()
+        return redirect("management_landing")
     return render(request, "management/announcements/remove_current_announcement.html")
 
 def edit_announcement_view(request):
-    return render(request, "management/announcements/edit_announcement.html")
+    context = {}
+    active_announcement = Announcement.objects.filter(is_active=True).first()
+    if request.method == "POST":
+        header = request.POST.get("header")
+        subheader = request.POST.get("subheader")
+        body = request.POST.get("body")
+        expiry = request.POST.get("expiry")
+        button_link = request.POST.get("button-link")
+        active_announcement.header = header
+        active_announcement.subheader = subheader
+        active_announcement.content = body
+        active_announcement.expiration_date = expiry if expiry != "" else None
+        active_announcement.button_link = button_link
+        active_announcement.save()
+        return redirect("management_landing")
+
+    context["announcement"] = active_announcement
+    return render(request, "management/announcements/edit_announcement.html", context=context)
 
 #=================================
 # Newsletter Views

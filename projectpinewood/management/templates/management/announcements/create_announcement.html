@@ -2,6 +2,12 @@
 {% load static %}
 {% block content %}
 <h1>Create A New Announcement</h1>
+{% if announcement_active %}
+<div>
+  <h2>Warning</h2>
+  <p>This will replace the current announcement.</p>
+</div>
+{% endif %}
 <form method="post">
   {% csrf_token %}
   <div class="control">

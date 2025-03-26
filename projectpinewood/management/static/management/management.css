@@ -127,6 +127,11 @@ Action Button Styling
     color: white;
 }
 
+/*
+
+Button Styling
+
+ */
 .button {
     background-color: #1e3799;
     flex: 1 0 15%;
@@ -165,7 +170,9 @@ Action Button Styling
 }
 
 /*
-    Form Styling
+
+   Form Styling
+
  */
 form {
     padding: 1rem;
@@ -227,3 +234,18 @@ form {
     .submit > input:hover {
         background-color: #2ecc71;
     }
+    
+.modal {
+    background-color: #2980b9;
+    padding: 2rem;
+    color: white;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.modal__header {
+    padding: 1rem;
+    font-size: 1rem;
+}
