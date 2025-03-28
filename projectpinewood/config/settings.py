@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# ETSY_API_KEY = os.getenv("ETSY_API_KEY")
+# ETSY_SHARED_SECRET = os.getenv("ETSY_SHARED_SECRET")
+
+# if not ETSY_API_KEY or not ETSY_SHARED_SECRET:
+#     raise ValueError("The API key or Shared Secret value is not set")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

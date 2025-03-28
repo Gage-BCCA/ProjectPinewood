@@ -49,6 +49,7 @@ class Announcement(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_expiration = models.DateTimeField(default=None, null=True, blank=True)
     link = models.URLField(default=None, null=True, blank=True)
+    #button text causing errors, removed for now
     button_text = models.CharField(max_length=50 , null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
