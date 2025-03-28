@@ -1,7 +1,8 @@
+from datetime import datetime, timedelta
 from operator import truediv
 
 from django.shortcuts import render, redirect
-from core.models import Announcement
+from core.models import Announcement, Subscriber
 
 # Create your views here.
 def management_landing_view(request):
@@ -123,16 +124,42 @@ def edit_announcement_view(request):
 # Newsletter Views
 #=================================
 def newsletter_overview(request):
-    return render(request, "management/newsletter/landing.html")
+    context = {}
+    subscribers = Subscriber.objects.order_by("date_subscribed")
+    recent_subscribers = Subscriber.objects.filter(date_subscribed__gte = datetime.today() - timedelta(days=30))
+    context["subscriber_count"] = len(subscribers)
+    context["recent_subscriber_count"] = len(recent_subscribers)
+    context["subscribers"] = subscribers[:5]
+    return render(request, "management/newsletter/landing.html", context=context)
 
 def add_email_view(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        first_name = request.POST.get("first-name")
+        wants_newsletter = request.POST.get("newsletter")
+        wants_product_updates = request.POST.get("product-updates")
+        new_sub = Subscriber(
+            email=email,
+            first_name=first_name,
+            wants_newsletter=True if wants_newsletter else False,
+            wants_product_updates=True if wants_product_updates else False
+        )
+        new_sub.save()
+        return redirect("management_landing")
     return render(request, "management/newsletter/add_email.html")
 
 def remove_email_view(request):
-    return render(request, "management/newsletter/remove_email.html")
+    subscribers = Subscriber.objects.order_by("date_subscribed")
+    context = {
+        "subscribers": subscribers
+    }
+    return render(request, "management/newsletter/remove_email.html", context=context)
 
 def all_emails_view(request):
-    return render(request, "management/newsletter/all_emails.html")
+    context = {}
+    subscribers = Subscriber.objects.order_by("date_subscribed")
+    context["subscribers"] = subscribers
+    return render(request, "management/newsletter/all_emails.html", context=context)
 
 #=================================
 # Gallery Views

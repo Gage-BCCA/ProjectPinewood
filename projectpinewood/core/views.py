@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your views here.
 def homepage_view(request):
     context = {}
-    announcements = Announcement.objects.filter(is_active=True)
+    announcements = Announcement.objects.filter(date_expiration__gte=timezone.now())
     context["announcements"] = announcements
     return render(request, "core/index.html", context)
 

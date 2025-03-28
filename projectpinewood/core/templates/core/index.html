@@ -10,19 +10,19 @@
 <h1>Welcome to the home page!</h1>
 
 {% for announcement in announcements %}
-<div class="announcement">
-    <h1>{{ announcement.header }}</h1>
-    {% if announcement.subheader %}
-        <h2>{{ announcement.subheader }}</h2>
-    {% endif %}
-    <p>{{ announcement.content }}</p>
+    <div class="announcement">
+        <h1>{{ announcement.header }}</h1>
+        {% if announcement.subheader %}
+            <h2>{{ announcement.subheader }}</h2>
+        {% endif %}
+        <p>{{ announcement.content }}</p>
 
-    {% if announcement.link %}
-    <div class="announcement__btn">
-        <a href="{{ announcement.link }}">See more</a>
+        {% if announcement.link %}
+            <div class="announcement__btn">
+                <a href="{{ announcement.link }}">{{ announcement.button_text }}</a>
+            </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 {% endfor %}
 
 <div class="gallery">
