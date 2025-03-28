@@ -2,48 +2,31 @@
 {% load static %}
 {% block content %}
 <h2>Announcements Management</h2>
-{% if announcement %}
 <div>
     <div>
         <h3>Header</h3>
-        <p>{{ announcement.header }}</p>
+        <p>Big sale!</p>
     </div>
-    {% if announcement.subheader %}
     <div>
         <h3>Subheader</h3>
-        <p>{{ announcement.subheader}}</p>
+        <p>Bigger sale!</p>
     </div>
-    {% endif %}
     <div>
         <h3>Announcement Body</h3>
-        <p>{{ announcement.content }}</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non tempor eros, id facilisis orci. Sed finibus
+            posuere commodo. Aenean sed fringilla orci. Suspendisse bibendum vel urna vel scelerisque. Etiam in magna dui.
+            Donec magna elit, finibus nec tempus sed, luctus nec lorem. Vestibulum id molestie leo. Nam id dui in nunc
+            aliquam dignissim at sed urna. Nunc justo lorem, cursus id egestas et, tempus sit amet arcu. Suspendisse sem
+            leo, malesuada eu auctor nec, congue non felis.
+        </p>
     </div>
-    {% if announcement.date_expiration %}
     <div>
         <h3>Expiration Date</h3>
-        <p>{{ announcement.date_expiration }}</p>
+        <p>January 1, 2020</p>
     </div>
-    {% endif %}
-
-    {% if announcement.link %}
-    <div>
-        <h3>Link</h3>
-        <p>{{ announcement.link }}</p>
-    </div>
-    {% endif %}
-
-    {% if announcement.button_text %}
-    <div>
-        <h3>Button</h3>
-        <p>{{ announcement.button_text }}</p>
-    </div>
-    {% endif %}
-
 </div>
-{% else %}
-<h3>No announcement active</h3>
-{% endif %}
 <section class="control-panel">
+    <h3>Posts</h3>
     <div class="buttons">
         <div class="button button--secondary">
             <a href="{% url 'create_announcement' %}">Create New Announcement</a>

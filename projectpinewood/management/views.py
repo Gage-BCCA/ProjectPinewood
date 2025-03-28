@@ -3,7 +3,6 @@ from operator import truediv
 
 from django.shortcuts import render, redirect
 from core.models import Announcement, Subscriber
-from blog.models import Post
 
 # Create your views here.
 def management_landing_view(request):
@@ -13,11 +12,7 @@ def management_landing_view(request):
 # Blog Views
 #=================================
 def blog_overview(request):
-    posts = Post.objects.order_by("date_created")[:5]
-    context = {
-        "posts": posts
-    }
-    return render(request, "management/blog/landing.html", context=context)
+    return render(request, "management/blog/landing.html")
 
 def add_post_view(request):
     return render(request, "management/blog/add_post.html")
@@ -26,17 +21,9 @@ def edit_post_view(request):
     return render(request, "management/blog/edit_post.html")
 
 def all_posts_view(request):
-    posts = Post.objects.all()
-    context = {
-        "posts": posts
-    }
-    return render(request, "management/blog/all_posts.html", context=context)
+    return render(request, "management/blog/all_posts.html")
 
 def delete_post_view(request):
-    if request.method == "POST":
-        target_id = request.POST.get("id")
-        Post.objects.filter(id=id).delete()
-
     return render(request, "management/blog/delete_post.html")
 
 #=================================

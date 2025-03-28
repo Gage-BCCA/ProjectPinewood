@@ -1,58 +1,5 @@
 {% extends 'management/base.html' %}
 {% load static %}
 {% block content %}
-<h1>Create A New Announcement</h1>
-{% if announcement_active %}
-<div>
-    <h2>Warning</h2>
-    <p>This will replace the current announcement.</p>
-</div>
-{% endif %}
-<form method="post">
-    {% csrf_token %}
-    <div class="control">
-        <div class="control__label">
-            <label for="header">Header</label>
-        </div>
-        <div class="control__input">
-            <input type="text" id="header" name="header" value="{{ announcement.header }}" required />
-        </div>
-    </div>
-    <div class="control">
-        <div class="control__label">
-            <label for="subheader">Subheader</label>
-        </div>
-        <div class="control__input">
-            <input type="text" id="subheader" name="subheader" value="{{ announcement.subheader }}" />
-        </div>
-    </div>
-    <div class="control">
-        <div class="control__label">
-            <label for="body">Announcement Body</label>
-        </div>
-        <div class="control__input">
-            <textarea id="body" name="body" required>{{ announcement.content }}</textarea>
-        </div>
-    </div>
-    <div class="control"  id="expiry-date-container">
-        <div class="control__label">
-            <label for="expiry">Expiration Date</label>
-        </div>
-        <div class="control__input">
-            <input type="datetime-local" id="expiry" name="expiry" value="{{ announcement.expiration_date }}" />
-        </div>
-    </div>
-    <div class="control" id="call-to-action-container">
-        <div class="control__label">
-            <label for="button-link" id="button-link-label">Button Link</label>
-        </div>
-        <div class="control__input">
-            <input type="text" id="button-link" name="button-link" value="{{ announcement.button_link }}" />
-        </div>
-    </div>
-    <div class="submit">
-        <input type="submit" value="Update Announcment" />
-    </div>
-</form>
 
 {% endblock %}
