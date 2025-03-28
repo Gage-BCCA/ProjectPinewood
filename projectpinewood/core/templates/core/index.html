@@ -10,15 +10,21 @@
 <h1>Welcome to the home page!</h1>
 
 {% for announcement in announcements %}
-  <div class="announcement">
-    <h1>{{ announcement.header }}</h1>
-
+      <div class="announcement">
+        <h1>{{ announcement.header }}</h1>
+    
     {% if announcement.subheader %}
-      <h2>{{ announcement.subheader }}</h2>
-    {% endif %}
-
+          <h2>{{ announcement.subheader }}</h2>
+        {% endif %}
+    
     <p>{{ announcement.content }}</p>
 
+        {% if announcement.link %}
+            <div class="announcement__btn">
+                <a href="{{ announcement.link }}">{{ announcement.button_text }}</a>
+            </div>
+        {% endif %}
+    </div>
     {% if announcement.link %}
       <div class="announcement__btn">
         <a href="{{ announcement.link }}"> {{ announcement.button_text }}</a>

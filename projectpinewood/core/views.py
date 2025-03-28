@@ -2,11 +2,16 @@ from django.shortcuts import render, redirect
 from .models import Announcement, Subscriber
 from .forms import *
 from django.utils import timezone
+from django.db.models import Q
 
 # Create your views here.
 def homepage_view(request):
     context = {}
-    announcements = Announcement.objects.filter(date_expiration__gte=timezone.now())
+    announcements = Announcement.objects.filter(
+        Q(date_expiration__gte=timezone.now()) | Q(date_expiration__isnull=True), #Had to change this to recognize null values
+        is_active=True
+    )
+    print(announcements)
     context["announcements"] = announcements
     return render(request, "core/index.html", context)
 
