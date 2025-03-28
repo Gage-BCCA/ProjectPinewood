@@ -2,4 +2,18 @@
 {% load static %}
 {% block content %}
 
+{% for picture in pictures %}
+<div class="row">
+    <div class="row__image">
+        <img src="{{ picture.image.url }}" alt="{{ picture.title }}">
+    </div>
+    <div class="row__info">
+        <p>{{ picture.link }}</p>
+    </div>
+    <div class="row__buttons">
+        <button>Edit</button>
+        <button>Remove</button>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
