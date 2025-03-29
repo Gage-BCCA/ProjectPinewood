@@ -4,5 +4,35 @@
 <link rel="stylesheet" href="{% static 'management/announcements/all_announcements/all_announcements.css' %}">
 {% endblock %}
 {% block content %}
-
+<h1>Archived Announcements</h1>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Header</th>
+        <th>Subheader</th>
+        <th>Content</th>
+        <th>Date Created</th>
+        <th>Expiration Date</th>
+        <th>Call to Action</th>
+        <th>Link</th>
+        <th>Active?</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for announcement in announcements %}
+        <tr>
+            <td>{{ announcement.id }}</td>
+            <td>{{ announcement.header }}</td>
+            <td>{{ announcement.subheader }}</td>
+            <td>{{ announcement.content }}</td>
+            <td>{{ announcement.date_created }}</td>
+            <td>{{ announcement.date_expiration }}</td>
+            <td>{{ announcement.button_text }}</td>
+            <td>{{ announcement.link }}</td>
+            <td>{{ announcement.is_active }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

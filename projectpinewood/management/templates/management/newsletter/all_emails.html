@@ -1,5 +1,29 @@
 {% extends 'management/base.html' %}
 {% load static %}
 {% block content %}
-
+<h3>All Subscribers</h3>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>first_name</th>
+        <th>Date Subscribed</th>
+        <th>Gets Newsletter</th>
+        <th>Gets Product Updates</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for subscriber in subscribers %}
+    <tr id="sub-{{ subscriber.id }}">
+        <td>{{ subscriber.id }}</td>
+        <td>{{ subscriber.email }}</td>
+        <td>{{ subscriber.first_name }}</td>
+        <td>{{ subscriber.date_subscribed }}</td>
+        <td>{{ subscriber.wants_newsletter }}</td>
+        <td>{{ subscriber.wants_product_updates }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

@@ -1,5 +1,24 @@
 {% extends 'management/base.html' %}
 {% load static %}
 {% block content %}
-
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>first_name</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for subscriber in subscribers %}
+    <tr id="sub-{{ subscriber.id }}">
+        <td>{{ subscriber.id }}</td>
+        <td>{{ subscriber.email }}</td>
+        <td>{{ subscriber.first_name }}</td>
+        <td><button>Delete</button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
