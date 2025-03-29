@@ -1,5 +1,28 @@
 {% extends 'management/base.html' %}
 {% load static %}
 {% block content %}
+<h1>Upload a New Image</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="control">
+        <div class="control__label">
+            <label for="image">Image</label>
+        </div>
+        <div class="control__input">
+            <input type="file" id="image" name="image" accept="image/png, image/jpeg"/>
+        </div>
+    </div>
 
+    <div class="control">
+        <div class="control__label">
+            <label for="link">Image Link</label>
+        </div>
+        <div class="control__input">
+            <input type="url" id="link" name="link">
+        </div>
+    </div>
+    <div class="submit">
+        <input type="submit" value="Upload Picture"/>
+    </div>
+</form>
 {% endblock %}

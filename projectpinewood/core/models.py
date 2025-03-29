@@ -70,8 +70,7 @@ class Gallery(models.Model):  #Add links to Gallery photo's: Dynamic
     def get_active_photo_count(cls):
         return cls.objects.filter(is_active=True).count()
     
-    def save(self):
+    def save(self, *args, **kwargs):
         if Gallery.get_active_photo_count() > max_photo_num:
             raise ValidationError
-
-        
+        super().save(*args, **kwargs)

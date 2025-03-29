@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from operator import truediv
 
 from django.shortcuts import render, redirect
-from core.models import Announcement, Subscriber
+from core.models import Announcement, Subscriber, Gallery
 
 # Create your views here.
 def management_landing_view(request):
@@ -165,9 +165,19 @@ def all_emails_view(request):
 # Gallery Views
 #=================================
 def gallery_overview(request):
+
     return render(request, "management/gallery/landing.html")
 
 def add_picture_view(request):
+    if request.method == "POST":
+        image = request.FILES["image"]
+        link = request.POST.get("link")
+        new_image = Gallery(
+            photo = image,
+            link = link if link != "" else None
+        )
+        new_image.save()
+        return redirect("management_landing")
     return render(request, "management/gallery/add_picture.html")
 
 def remove_picture_view(request):
