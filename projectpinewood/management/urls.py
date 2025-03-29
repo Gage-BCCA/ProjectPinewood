@@ -10,8 +10,8 @@ urlpatterns = [
     #=================================
     path('blog/', views.blog_overview, name='blog_management'),
     path('blog/create', views.add_post_view, name='add_post'),
-    path('blog/delete', views.delete_post_view, name='delete_post'),
-    path('blog/edit', views.edit_post_view, name='edit_post'),
+    path('blog/delete/<int:id>', views.delete_post_view, name='delete_post'),
+    path('blog/edit/<int:id>', views.edit_post_view, name='edit_post'),
     path('blog/all', views.all_posts_view, name='all_posts'),
 
 
@@ -39,7 +39,7 @@ urlpatterns = [
     #=================================
     path('newsletter/', views.newsletter_overview, name='newsletter_management'),
     path('newsletter/add', views.add_email_view, name='add_email'),
-    path('newsletter/remove', views.remove_email_view, name='remove_email'),
+    path('newsletter/remove/<int:id>', views.remove_email_view, name='remove_email'),
     path('newsletter/all', views.all_emails_view, name='all_emails'),
 
 
@@ -51,4 +51,10 @@ urlpatterns = [
     path('gallery/remove', views.remove_picture_view, name='remove_picture'),
     path('gallery/all', views.all_pictures_view, name='all_pictures'),
     path('gallery/edit', views.edit_picture_view, name='edit_picture'),
+
+    # =================================
+    # Management API Routes
+    # =================================
+    path('api/blog/new', views._save_new_post, name='save_new_post'),
+    path('api/blog/save', views._update_post, name='update_post'),
 ]

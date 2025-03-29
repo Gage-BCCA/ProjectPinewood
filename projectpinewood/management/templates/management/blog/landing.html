@@ -6,26 +6,26 @@
 <div class="stats">
     <div class="stats__item">
         <div class="stats__title">
-            <p>Blogs Posted</p>
+            <p>Total Posts</p>
         </div>
         <div class="stats__content">
-            <h1>21</h1>
+            <h1>{{ post_count }}</h1>
         </div>
     </div>
     <div class="stats__item">
         <div class="stats__title">
-            <p>Blogs Posted</p>
+            <p>Posts Published</p>
         </div>
         <div class="stats__content">
-            <h1>21</h1>
+            <h1>{{ published_post_count }}</h1>
         </div>
     </div>
     <div class="stats__item">
         <div class="stats__title">
-            <p>Blogs Posted</p>
+            <p>Posts Drafted</p>
         </div>
         <div class="stats__content">
-            <h1>21</h1>
+            <h1>{{ drafted_post_count }}</h1>
         </div>
     </div>
 </div>
@@ -45,6 +45,7 @@
                 <th>Status</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -57,7 +58,8 @@
                 <td>{{ post.date_last_modified }}</td>
                 <td>{{ post.status }}</td>
                 <td><a href="#">View</a></td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="{% url 'edit_post' post.id %}">Edit</a></td>
+                <th><a href="{% url 'delete_post' post.id %}">Delete</a></th>
             </tr>
             {% endfor %}
         </table>
@@ -70,12 +72,6 @@
         </div>
         <div class="button">
             <a href="{% url 'all_posts' %}">View All Posts</a>
-        </div>
-        <div class="button">
-            <a href="{% url 'edit_post' %}">Edit A Post</a>
-        </div>
-        <div class="button button--dangerous">
-            <a href="{% url 'delete_post' %}">Delete A Post</a>
         </div>
     </div>
 </section>

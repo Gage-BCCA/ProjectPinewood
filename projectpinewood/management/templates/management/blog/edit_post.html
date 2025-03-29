@@ -1,5 +1,64 @@
 {% extends 'management/base.html' %}
 {% load static %}
-{% block content %}
 
+{% block additional_css_files %}
+<link rel="stylesheet" href="{% static 'management/editor.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Blog Post Builder</h1>
+<div class="toolbar">
+    <div class="btn-group">
+        <div>
+            <button id="add-big-header-btn">Add Big Header</button>
+        </div>
+        <div id="add-small-header-btn">
+            <button>Add Small Header</button>
+        </div>
+        <div id="add-text-section-btn">
+            <button>Add Text Section</button>
+        </div>
+    </div>
+    <div class="btn-group">
+        <div>
+            <button id="submit-btn">Save Post</button>
+        </div>
+        <div>
+            <button>Publish Post</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1>Build a New Blog Post</h1>
+</div>
+<div>
+    <h2>Post Title</h2>
+    <input type="text" id="title-input-box" value="{{ post.title }}"required />
+
+    <h3>Subtitle</h3>
+    <input type="text" id="subtitle-input-box" value="{{ post.subtitle }}" />
+</div>
+<div id="document" data-post-id="{{ post.id }}">
+{% for element in post.body %}
+    {% if element.type == 'bigHeader' %}
+    <div class="big-header">
+       <h1>{{ element.content }}</h1>
+    </div>
+    {% endif %}
+
+    {% if element.type == 'smallHeader' %}
+    <div>
+        <h2>{{ element.content }}</h2>
+    </div>
+    {% endif %}
+
+    {% if element.type == 'textSection' %}
+    <div>
+        <p>{{ element.content }}</p>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+<script src="{% static 'management/editor.js' %}"></script>
 {% endblock %}

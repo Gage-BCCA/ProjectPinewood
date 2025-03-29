@@ -4,5 +4,18 @@
 <link rel="stylesheet" href="{% static 'management/blog/edit/edit_post.css' %}">
 {% endblock %}
 {% block content %}
-
+<form class="modal" method="POST">
+    {% csrf_token %}
+    <div class="modal__header">
+        <h3>Delete this Post?</h3>
+    </div>
+    <div class="submit">
+        <input type="submit" value="Yes">
+    </div>
+    <div class="control">
+        <div class="control__input">
+            <a href="{% url 'blog_landing' %}">Cancel</a>
+        </div>
+    </div>
+</form>
 {% endblock %}

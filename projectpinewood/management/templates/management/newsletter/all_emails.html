@@ -11,6 +11,7 @@
         <th>Date Subscribed</th>
         <th>Gets Newsletter</th>
         <th>Gets Product Updates</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td>{{ subscriber.date_subscribed }}</td>
         <td>{{ subscriber.wants_newsletter }}</td>
         <td>{{ subscriber.wants_product_updates }}</td>
+        <th><a href="{% url 'remove_email' subscriber.id %}">Delete</a></th>
     </tr>
     {% endfor %}
     </tbody>

@@ -35,7 +35,7 @@ class Post(models.Model):
     date_published = models.DateTimeField(default=None, null=True)
     date_last_modified = models.DateTimeField(auto_now=True)
     body = (
-        models.TextField()
+        models.JSONField()
     )  # TODO: Implement JSON support here instead of regular text
     slug = models.SlugField(unique=True, blank=True)
     featured_image = models.TextField(null=True)  # TODO: Add local image support

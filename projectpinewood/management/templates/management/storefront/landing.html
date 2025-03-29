@@ -7,26 +7,18 @@
 <div class="stats">
     <div class="stats__item">
         <div class="stats__title">
-            <p>Blogs Posted</p>
+            <p>Number of Products</p>
         </div>
         <div class="stats__content">
-            <h1>21</h1>
+            <h1>{{ number_products }}</h1>
         </div>
     </div>
     <div class="stats__item">
         <div class="stats__title">
-            <p>Blogs Posted</p>
+            <p>Featured Products</p>
         </div>
         <div class="stats__content">
-            <h1>21</h1>
-        </div>
-    </div>
-    <div class="stats__item">
-        <div class="stats__title">
-            <p>Blogs Posted</p>
-        </div>
-        <div class="stats__content">
-            <h1>21</h1>
+            <h1>{{ number_featured }}</h1>
         </div>
     </div>
 </div>
@@ -39,49 +31,24 @@
         <table class="styled-table">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Country</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Created At</th>
+                <th>Updated At</th>
             </tr>
             </thead>
             <tbody>
+            {% for product in featured_products %}
             <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>johndoe@example.com</td>
-                <td>28</td>
-                <td>USA</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.created_at }}</td>
+                <td>{{ product.updated_at }}</td>
+                <td>{{ product.wants_product_updates }}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Jane Smith</td>
-                <td>janesmith@example.com</td>
-                <td>34</td>
-                <td>Canada</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Michael Brown</td>
-                <td>michaelb@example.com</td>
-                <td>41</td>
-                <td>UK</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Emily White</td>
-                <td>emilyw@example.com</td>
-                <td>25</td>
-                <td>Australia</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Chris Johnson</td>
-                <td>chrisj@example.com</td>
-                <td>30</td>
-                <td>Germany</td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -95,9 +62,6 @@
             </div>
             <div class="button">
                 <a href="{% url 'all_featured_products' %}">View All Featured Products</a>
-            </div>
-            <div class="button">
-                <a href="{% url 'edit_featured_product' %}">Edit a Featured Product</a>
             </div>
             <div class="button button--dangerous">
                 <a href="{% url 'remove_featured_product' %}">Remove a Featured Product</a>

@@ -1,24 +1,18 @@
 {% extends 'management/base.html' %}
 {% load static %}
 {% block content %}
-<table class="styled-table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Email</th>
-        <th>first_name</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for subscriber in subscribers %}
-    <tr id="sub-{{ subscriber.id }}">
-        <td>{{ subscriber.id }}</td>
-        <td>{{ subscriber.email }}</td>
-        <td>{{ subscriber.first_name }}</td>
-        <td><button>Delete</button></td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<form class="modal" method="POST">
+    {% csrf_token %}
+    <div class="modal__header">
+        <h3>Remove This Subscriber?</h3>
+    </div>
+    <div class="submit">
+        <input type="submit" value="Yes">
+    </div>
+    <div class="control">
+        <div class="control__input">
+            <a href="{% url 'newsletter_management' %}">Cancel</a>
+        </div>
+    </div>
+</form>
 {% endblock %}

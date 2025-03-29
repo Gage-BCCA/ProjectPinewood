@@ -227,3 +227,8 @@ form {
     .submit > input:hover {
         background-color: #2ecc71;
     }
+
+.row__image img {
+    max-width: 500px;
+    max-height: 500px;
+}

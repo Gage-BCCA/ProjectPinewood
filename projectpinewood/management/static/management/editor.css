@@ -1,0 +1,23 @@
+.toolbar {
+    display: flex;
+    background-color: #2980b9;
+    padding: 1rem;
+    position: sticky;
+    top: 1rem;
+    border-radius: 1rem;
+}
+
+.btn-group {
+    display: flex;
+    flex: 0 1 50%;
+    margin: auto 2rem;
+}
+
+.btn-group > div {
+    flex: 1;
+    margin: auto .5rem;
+}
+
+#document {
+    min-height: 120vh;
+}

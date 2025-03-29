@@ -4,5 +4,32 @@
 <link rel="stylesheet" href="{% static 'management/blog/edit/edit_post.css' %}">
 {% endblock %}
 {% block content %}
-
+<h3>All Featured Products</h3>
+<table class="styled-table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.title }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.created_at }}</td>
+                <td>{{ product.updated_at }}</td>
+                <td>{{ product.wants_product_updates }}</td>
+                <td><button>Edit</button></td>
+                <td><button>Delete</button></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 {% endblock %}

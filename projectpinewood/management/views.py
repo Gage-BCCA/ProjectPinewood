@@ -1,8 +1,11 @@
 from datetime import datetime, timedelta
-from operator import truediv
+import json
 
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from core.models import Announcement, Subscriber, Gallery
+from storefront.models import Product, FeaturedProduct
+from blog.models import Post, PostStatus
 
 # Create your views here.
 def management_landing_view(request):
@@ -12,27 +15,99 @@ def management_landing_view(request):
 # Blog Views
 #=================================
 def blog_overview(request):
-    return render(request, "management/blog/landing.html")
+    posts = Post.objects.order_by("-date_created")
+    post_count = len(posts)
+    published_post_count = Post.objects.filter(status__status="Published").count()
+    drafted_post_count = Post.objects.filter(status__status="Drafted").count()
+    context = {
+        "posts": posts[:5],
+        "post_count": post_count,
+        "published_post_count": published_post_count,
+        "drafted_post_count": drafted_post_count
+    }
+    return render(request, "management/blog/landing.html", context=context)
 
 def add_post_view(request):
     return render(request, "management/blog/add_post.html")
 
-def edit_post_view(request):
-    return render(request, "management/blog/edit_post.html")
+def edit_post_view(request, id):
+    target_post = Post.objects.filter(pk=id).first()
+    context = {
+        "post": target_post
+    }
+    return render(request, "management/blog/edit_post.html", context=context)
 
 def all_posts_view(request):
-    return render(request, "management/blog/all_posts.html")
+    posts = Post.objects.all()
+    context = {
+        "posts": posts
+    }
+    return render(request, "management/blog/all_posts.html", context=context)
 
-def delete_post_view(request):
+def delete_post_view(request, id):
+    if request.method == "POST":
+        target = Post.objects.filter(pk=id)
+        target.delete()
+        return redirect("blog_overview")
     return render(request, "management/blog/delete_post.html")
+
+def _save_new_post(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        print(request.POST)
+        title = data.get("title")
+        print(title)
+        subtitle = data.get("subtitle")
+        status = PostStatus.objects.filter(status="Drafted").first()
+        body = data.get("body")
+        new_post = Post(
+            title=title,
+            subtitle=subtitle,
+            status=status,
+            body=body
+        )
+        new_post.save()
+        return redirect("management_landing")
+    
+def _update_post(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        target = Post.objects.filter(pk=data.get("id")).first()
+        if not target:
+            return JsonResponse({"status": "error"})
+        title = data.get("title")
+        subtitle = data.get("subtitle")
+        body = data.get("body")
+        target.title = title
+        target.subtitle = subtitle
+        target.body = body
+        target.date_last_modified = datetime.now()
+        target.save()
+        return JsonResponse({"status": "success"})
+    return
+
+def _delete_post(request, id):
+   return
 
 #=================================
 # Storefront Views
 #=================================
 def storefront_overview(request):
-    return render(request, "management/storefront/landing.html")
+    featured_products = FeaturedProduct.objects.all()
+    number_products = len(Product.objects.all())
+    number_featured = len(featured_products)
+    context = {
+        "featured_products": featured_products,
+        "number_products": number_products,
+        "number_featured": number_featured
+    }
+    return render(request, "management/storefront/landing.html", context=context)
 
 def add_featured_product_view(request):
+    products = Product.objects.all()
+    context = {
+        "products": products
+    }
     return render(request, "management/storefront/add_featured_product.html")
 
 def remove_featured_product_view(request):
@@ -148,12 +223,12 @@ def add_email_view(request):
         return redirect("management_landing")
     return render(request, "management/newsletter/add_email.html")
 
-def remove_email_view(request):
-    subscribers = Subscriber.objects.order_by("date_subscribed")
-    context = {
-        "subscribers": subscribers
-    }
-    return render(request, "management/newsletter/remove_email.html", context=context)
+def remove_email_view(request, id):
+    if request.method == "POST":
+        target = Subscriber.objects.filter(pk=id)
+        target.delete()
+        return redirect("newsletter_management")
+    return render(request, "management/newsletter/remove_email.html")
 
 def all_emails_view(request):
     context = {}
@@ -184,7 +259,11 @@ def remove_picture_view(request):
     return render(request, "management/gallery/remove_picture.html")
 
 def all_pictures_view(request):
-    return render(request, "management/gallery/all_pictures.html")
+    pictures = Gallery.objects.all()
+    context = {
+        "pictures": pictures
+    }
+    return render(request, "management/gallery/all_pictures.html", context=context)
 
 def edit_picture_view(request):
     return render(request, "management/gallery/edit_picture.html")

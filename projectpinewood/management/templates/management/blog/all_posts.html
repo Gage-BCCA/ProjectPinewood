@@ -17,6 +17,7 @@
         <th>Status</th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -29,7 +30,8 @@
         <td>{{ post.date_last_modified }}</td>
         <td>{{ post.status }}</td>
         <td><a href="#">View</a></td>
-        <td><a href="#">Edit</a></td>
+        <td><a href="{% url 'edit_post' post.id %}">Edit</a></td>
+        <th><a href="{% url 'delete_post' post.id %}">Delete</a></th>
     </tr>
     {% endfor %}
 </table>
